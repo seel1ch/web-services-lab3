@@ -1,0 +1,15 @@
+image_modulator/
+├── .gitignore
+├── Pipfile
+├── README.md
+├── Procfile                 # для Render (опционально, FastAPI запускается через uvicorn)
+├── runtime.txt              # для Render (опционально)
+├── app.py                   # основное приложение FastAPI
+├── .github/
+│   └── workflows/
+│       └── ci.yml           # GitHub Actions CI
+├── static/
+│   └── styles.css
+└── templates/
+    ├── index.html
+    └── result.html

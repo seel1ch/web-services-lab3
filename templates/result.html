@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Результат</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <h1>Результат обработки</h1>
+  <table>
+    <tr>
+      <td><img src="{{ orig_img }}" alt="Original"></td>
+      <td><img src="{{ mod_img }}" alt="Modified"></td>
+    </tr>
+    <tr>
+      <td colspan="2"><img src="{{ hist_img }}" alt="Histograms" style="width:100%"></td>
+    </tr>
+  </table>
+  <p><a href="/">← Назад</a></p>
+</body>
+</html>

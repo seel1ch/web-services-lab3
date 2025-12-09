@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Image Modulator — Вариант 18</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <h1>Модуляция изображения синусом/косинусом</h1>
+  <form method="post" enctype="multipart/form-data" action="/process">
+    <fieldset>
+      <legend>Настройки модуляции</legend>
+      <p>
+        <label>Функция:</label>
+        <select name="func">
+          <option value="sin">sin</option>
+          <option value="cos">cos</option>
+        </select>
+      </p>
+      <p>
+        <label>Направление:</label>
+        <select name="axis">
+          <option value="horizontal">По горизонтали</option>
+          <option value="vertical">По вертикали</option>
+        </select>
+      </p>
+      <p>
+        <label>Период (например, 1.0):</label>
+        <input type="number" step="0.1" name="period" value="1.0" min="0.1" required>
+      </p>
+      <p>
+        <label>Изображение:</label>
+        <input type="file" name="file" accept="image/*" required>
+      </p>
+      <div class="g-recaptcha" data-sitekey="ВАШ_PUBLIC_KEY"></div>
+      <br>
+      <button type="submit">Обработать</button>
+    </fieldset>
+  </form>
+</body>
+</html>
