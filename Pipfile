@@ -1,15 +1,20 @@
-image_modulator/
-├── .gitignore
-├── Pipfile
-├── README.md
-├── Procfile                 # для Render (опционально, FastAPI запускается через uvicorn)
-├── runtime.txt              # для Render (опционально)
-├── app.py                   # основное приложение FastAPI
-├── .github/
-│   └── workflows/
-│       └── ci.yml           # GitHub Actions CI
-├── static/
-│   └── styles.css
-└── templates/
-    ├── index.html
-    └── result.html
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "*"
+uvicorn = "*"
+jinja2 = "*"
+python-multipart = "*"
+pillow = "*"
+numpy = "*"
+matplotlib = "*"
+requests = "*"
+
+[dev-packages]
+pytest = "*"
+
+[requires]
+python_version = "3.10"
