@@ -16,7 +16,7 @@ templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Google reCAPTCHA
-RECAPTCHA_SECRET = os.getenv("RECAPTCHA_SECRET", "ваш_секретный_ключ")
+RECAPTCHA_SECRET = os.getenv("RECAPTCHA_SECRET", "6LcGyCUsAAAAAKi_jnVLgVXB9QJYsQ0Lju8d0H-M")
 
 def apply_modulation(image: np.ndarray, func: str, axis: str, period: float):
     h, w = image.shape[:2]
