@@ -5,6 +5,27 @@
   <title>Image Modulator — Вариант 18</title>
   <link rel="stylesheet" href="/static/styles.css">
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script>
+    function toggleWatermark() {
+      const checkbox = document.getElementById('watermark-toggle');
+      const settings = document.getElementById('watermark-settings');
+      settings.style.display = checkbox.checked ? 'block' : 'none';
+    }
+    
+    function toggleWatermarkType() {
+      const type = document.getElementById('watermark-type').value;
+      const textField = document.getElementById('watermark-text-field');
+      const imageField = document.getElementById('watermark-image-field');
+      
+      if (type === 'text') {
+        textField.style.display = 'block';
+        imageField.style.display = 'none';
+      } else {
+        textField.style.display = 'none';
+        imageField.style.display = 'block';
+      }
+    }
+  </script>
 </head>
 <body>
   <h1>Модуляция изображения синусом/косинусом</h1>
@@ -33,6 +54,58 @@
         <label>Изображение:</label>
         <input type="file" name="file" accept="image/*" required>
       </p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Настройки водяного знака</legend>
+      <p>
+        <label>
+          <input type="checkbox" id="watermark-toggle" name="watermark_enabled" value="yes" onchange="toggleWatermark()">
+          Добавить водяной знак
+        </label>
+      </p>
+      <div id="watermark-settings" style="display: none;">
+        <p>
+          <label>Тип водяного знака:</label>
+          <select name="watermark_type" id="watermark-type" onchange="toggleWatermarkType()">
+            <option value="text">Текст</option>
+            <option value="image">Изображение</option>
+          </select>
+        </p>
+        <p id="watermark-text-field">
+          <label>Текст водяного знака:</label>
+          <input type="text" name="watermark_text" placeholder="Введите текст">
+        </p>
+        <p id="watermark-image-field" style="display: none;">
+          <label>Изображение водяного знака:</label>
+          <input type="file" name="watermark_file" accept="image/*">
+        </p>
+        <p>
+          <label>Позиция:</label>
+          <select name="watermark_position">
+            <option value="top-left">Верхний левый угол</option>
+            <option value="top-right">Верхний правый угол</option>
+            <option value="bottom-left">Нижний левый угол</option>
+            <option value="bottom-right" selected>Нижний правый угол</option>
+            <option value="center">По центру</option>
+          </select>
+        </p>
+        <p>
+          <label>Угол поворота (градусы):</label>
+          <input type="number" name="watermark_rotation" value="0" min="-180" max="180" step="1">
+        </p>
+        <p>
+          <label>Прозрачность (0.0 - 1.0):</label>
+          <input type="number" name="watermark_opacity" value="0.5" min="0" max="1" step="0.1">
+        </p>
+        <p>
+          <label>Размер (% от изображения):</label>
+          <input type="number" name="watermark_size" value="20" min="5" max="100" step="5">
+        </p>
+      </div>
+    </fieldset>
+
+    <fieldset style="border: none; padding-top: 0;">
       <div class="g-recaptcha" data-sitekey="6LcGyCUsAAAAAJl70JEq7Y4iZ7TfMOTX8QFmF8KM"></div>
       <br>
       <button type="submit">Обработать</button>

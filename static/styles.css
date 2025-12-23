@@ -59,6 +59,7 @@ label {
 }
 
 input[type="number"],
+input[type="text"],
 input[type="file"],
 select {
   width: 100%;
@@ -72,6 +73,7 @@ select {
 }
 
 input[type="number"]:focus,
+input[type="text"]:focus,
 select:focus {
   outline: none;
   border-color: #667eea;
@@ -177,4 +179,27 @@ a:hover {
   button {
     padding: 14px 24px;
   }
+}
+input
+[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+label:has(input[type="checkbox"]) {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: #667eea;
+}
+
+#watermark-settings {
+  margin-top: 16px;
+  padding: 20px;
+  background: #f8f9ff;
+  border-radius: 8px;
+  border: 2px dashed #667eea;
 }
