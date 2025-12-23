@@ -20,4 +20,4 @@ jobs:
         run: pipenv install --dev
 
       - name: Run tests (placeholder)
-        run: pipenv run python -c "print('✅ Зависимости установлены успешно')"
+        run: pipenv run python -c "print('Зависимости установлены успешно')"
